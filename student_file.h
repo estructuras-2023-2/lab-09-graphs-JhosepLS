@@ -48,3 +48,16 @@ struct Carretera {
 
     Carretera(string i, string c1, string c2, int co = -1) : id(i), ciudad1(c1), ciudad2(c2), costo(co) {}
 };
+
+vector<string> dividir(const string& str, char delim) {
+    vector<string> tokens;
+    size_t inicio = 0;
+    size_t fin = str.find(delim);
+    while (fin != string::npos) {
+        tokens.push_back(str.substr(inicio, fin - inicio));
+        inicio = fin + 1;
+        fin = str.find(delim, inicio);
+    }
+    tokens.push_back(str.substr(inicio));
+    return tokens;
+}
